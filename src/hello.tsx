@@ -28,7 +28,7 @@ class Hello extends React.Component<Props, State> {
     public render() {
         const {name, age, sex} = this.state
         return (
-            <>
+            <div className={'hello'}>
                 <ul>
                     <li>姓名：{name}</li>
                     <li>性别：{sex}</li>
@@ -37,8 +37,7 @@ class Hello extends React.Component<Props, State> {
                 <button onClick={this.changAge}>
                     年龄+1
                 </button>
-                <hr/>
-            </>
+            </div>
         )
     }
 

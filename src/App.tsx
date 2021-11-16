@@ -4,8 +4,8 @@ import Hello from "./hello";
 
 class App extends React.Component<{}, {}> {
     public inputValue1: any = React.createRef()
-    public inputValue2: any
-    public inputValue3: any
+    public inputValue2: HTMLInputElement | undefined
+    public inputValue3: HTMLInputElement | undefined
     public state = {
         inputValue1: '',
         inputValue2: '',
@@ -21,11 +21,19 @@ class App extends React.Component<{}, {}> {
         return (
             <>
                 <Hello {...data} />
+                <hr/>
                 <Hello name="老胡"/>
-                {/*创建dom对象*/}
-                <input type="text" ref={this.inputValue1} onInput={this.changeInput1}/>
+                <hr/>
+
+                {/*推荐：创建ref容器存放dom对象*/}
+                <input
+                    type="text"
+                    ref={this.inputValue1}
+                    onInput={this.changeInput1}
+                />
                 <span className={'show'}>{this.state.inputValue1}</span>
                 <hr/>
+
                 {/*回调返回dom，方法1：内联函数式*/}
                 <input
                     type="text"
@@ -34,6 +42,7 @@ class App extends React.Component<{}, {}> {
                 />
                 <span className={'show'}>{this.state.inputValue2}</span>
                 <hr/>
+
                 {/*回调返回dom，方法2：绑定方法式*/}
                 <input
                     type="text"
@@ -51,14 +60,14 @@ class App extends React.Component<{}, {}> {
         this.setState({inputValue1: value})
     }
     changeInput2 = () => {
-        const value: string = this.inputValue2.value
+        const value: string = (this.inputValue2 as HTMLInputElement).value
         this.setState({inputValue2: value})
     }
     severInput = (cn: HTMLInputElement) => {
         this.inputValue3 = cn
     }
     changeInput3 = () => {
-        const value: string = this.inputValue3.value
+        const value: string = (this.inputValue3 as HTMLInputElement).value
         this.setState({inputValue3: value})
     }
 }

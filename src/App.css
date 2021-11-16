@@ -1,6 +1,7 @@
 input, button {
     margin: 5px 10px;
     font-size: 1em;
+    user-select: none;
 }
 
 button {
@@ -8,6 +9,7 @@ button {
     background-color: #b5d8ff;
     padding: 0.2em 0.5em;
     line-height: 1.5em;
+    border-radius: 0.5em;
 }
 
 .show {
@@ -16,4 +18,7 @@ button {
     line-height: 1.6em;
     font-size: 0.8em;
     margin: 0 0 5px 10px;
+}
+.hello{
+    margin: 0 5px;
 }
